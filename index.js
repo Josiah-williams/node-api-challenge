@@ -12,3 +12,29 @@ I need this code, but don't know where, perhaps should make some middleware, don
 
 Go code!
 */
+
+const express = require("express");
+
+const cors = require("cors");
+const actionsRouter = require("./actionsRouter");
+const projectsRouter = require("./projectsRouter");
+
+const app = express();
+
+app.use(express.json());
+app.use(cors())
+app.use("/actions", actionsRouter)
+app.use("/projects", projectsRouter);
+
+
+
+
+  
+
+const PORT = 4789;
+
+
+app.listen(PORT, () => {
+    console.log(`i am listening on ${PORT}`);
+  });
+  
